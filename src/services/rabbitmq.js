@@ -13,7 +13,7 @@ class RabbitMq {
         this.channel = await this.connection.createChannel()
 
         await this.channel.assertQueue(this.queue)
-        await this.channel.assertExchange(this.exchangeName, 'direct')
+        await this.channel.assertExchange(this.exchangeName, 'topic')
 
         await this.channel.bindQueue(this.queue, this.exchangeName, this.pattern)
 
